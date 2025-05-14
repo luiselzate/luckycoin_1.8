@@ -50,7 +50,7 @@ public:
         //     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
         //     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
         //   vMerkleTree: 4a5e1e
-        const char* pszTimestamp = "Nintondo";
+        const char* pszTimestamp = ""May 22, 2013, 12:16 a.m. EDT: Japan\x92s Nikkei Stock Average JP:NIK +1.77%, which ended at their highest level in more than five years in each of the last three trading sessions, climbed a further 1.2% Wednesday";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -61,13 +61,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1386325540;
+        genesis.nTime    = 1369199888;
         genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 99943;
+        genesis.nNonce   = 11288888;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x1a91e3dace36e2be3bf030a65679fe821aa1d6ef92e7c9902eb318182c355691"));
-        assert(genesis.hashMerkleRoot == uint256("0x5b2a3f53f605d62c53e62932dac6925e3d74afa5a4b459745c36d42d0ed26a69"));
+        assert(hashGenesisBlock == uint256("0x9b7bce58999062b63bfb18586813c42491fa32f4591d8d3043cb4fa9e551541b"));
+        assert(genesis.hashMerkleRoot == uint256("0x6f80efd038566e1e3eab3e1d38131604d06481e77f2462235c6a9a94b1f8abf9"));
 
         vSeeds.push_back(CDNSSeedData("dogecoin.com", "seed.dogecoin.com"));
         vSeeds.push_back(CDNSSeedData("mophides.com", "seed.mophides.com"));
