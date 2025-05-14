@@ -32,15 +32,15 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xc0;
+        pchMessageStart[0] = 0xfb;
         pchMessageStart[1] = 0xc0;
-        pchMessageStart[2] = 0xc0;
-        pchMessageStart[3] = 0xc0;
+        pchMessageStart[2] = 0xb6;
+        pchMessageStart[3] = 0xdb;
         vAlertPubKey = ParseHex("04d4da7a5dae4db797d9b0644d57a5cd50e05a70f36091cd62e2fc41c98ded06340be5a43a35e185690cd9cde5d72da8f6d065b499b06f51dcfba14aad859f443a");
-        nDefaultPort = 22556;
-        nRPCPort = 22555;
+        nDefaultPort = 9917;
+        nRPCPort = 9918;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
-        nSubsidyHalvingInterval = 210000;
+        nSubsidyHalvingInterval = 100000;
 
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
