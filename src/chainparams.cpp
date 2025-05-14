@@ -70,18 +70,15 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0x6f80efd038566e1e3eab3e1d38131604d06481e77f2462235c6a9a94b1f8abf9"));
 
         vSeeds.push_back(CDNSSeedData("dogecoin.com", "seed.dogecoin.com"));
-        vSeeds.push_back(CDNSSeedData("mophides.com", "seed.mophides.com"));
-        vSeeds.push_back(CDNSSeedData("dglibrary.org", "seed.dglibrary.org"));
-        vSeeds.push_back(CDNSSeedData("dogechain.info", "seed.dogechain.info"));
 
         // Workaround for Boost not being quite compatible with C++11;
-        std::vector<unsigned char> pka = list_of(30);
+        std::vector<unsigned char> pka = list_of(47);
         base58Prefixes[PUBKEY_ADDRESS] = pka;
         
-        std::vector<unsigned char> sca = list_of(22);
+        std::vector<unsigned char> sca = list_of(5);
         base58Prefixes[SCRIPT_ADDRESS] = sca;
         
-        std::vector<unsigned char> sk  = list_of(158);
+        std::vector<unsigned char> sk  = list_of(175);
         base58Prefixes[SECRET_KEY]     = sk;
         
         std::vector<unsigned char> epk = list_of(0x04)(0x88)(0xC4)(0x2E);
