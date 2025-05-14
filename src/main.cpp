@@ -1663,10 +1663,10 @@ bool CheckInputs(const CTransaction& tx, CValidationState &state, CCoinsViewCach
 
                 int minDepth = GetRequiredMaturityDepth(coins.nHeight);
 
-                if (nSpendHeight - coins.nHeight < minDepth)
-                    return state.Invalid(
-                        error("CheckInputs() : tried to spend coinbase at depth %d", nSpendHeight - coins.nHeight),
-                        REJECT_INVALID, "bad-txns-premature-spend-of-coinbase");
+                //if (nSpendHeight - coins.nHeight < minDepth)
+                //    return state.Invalid(
+                //        error("CheckInputs() : tried to spend coinbase at depth %d", nSpendHeight - coins.nHeight),
+                //        REJECT_INVALID, "bad-txns-premature-spend-of-coinbase");
             }
 
             // Check for negative or overflow input values
