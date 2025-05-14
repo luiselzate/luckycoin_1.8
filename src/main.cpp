@@ -2384,8 +2384,8 @@ bool CBlockHeader::CheckProofOfWork(int nHeight) const
         // - this block must have our chain ID
         // - parent block must not have the same chain ID (see CAuxPow::Check)
         // - index of this chain in chain merkle tree must be pre-determined (see CAuxPow::Check)
-        if (!TestNet() && nHeight != INT_MAX && GetChainID() != AUXPOW_CHAIN_ID)
-            return error("CheckProofOfWork() : block does not have our chain ID");
+        //if (!TestNet() && nHeight != INT_MAX && GetChainID() != AUXPOW_CHAIN_ID)
+        //    return error("CheckProofOfWork() : block does not have our chain ID");
 
         if (auxpow.get() != NULL)
         {
