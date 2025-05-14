@@ -1,4 +1,4 @@
-# Luckycoin Core [DOGE, Ð]
+# Luckycoin Core [LKY, Ł]
 
 [![Build Status](https://travis-ci.org/dogecoin/dogecoin.svg?branch=1.7-dev)](https://travis-ci.org/dogecoin/dogecoin) [![tip for next commit](https://tip4commit.com/projects/702.svg)](https://tip4commit.com/github/dogecoin/dogecoin)
 
