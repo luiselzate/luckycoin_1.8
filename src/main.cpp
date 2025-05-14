@@ -1212,33 +1212,43 @@ int static generateMTRandom(unsigned int s, int range)
 
 int64_t GetBlockValue(int nHeight, int64_t nFees, uint256 prevHash)
 {
-    int64_t nSubsidy = 500000 * COIN;
+    int64_t nSubsidy = 88 * COIN;
 
-    std::string cseed_str = prevHash.ToString().substr(7,7);
-    const char* cseed = cseed_str.c_str();
-    long seed = hex2long(cseed);
-    int rand = generateMTRandom(seed, 999999);
-    int rand1 = 0;
+    if(nHeight < 50000)
+    {
+        std::string cseed_str = prevHash.ToString().substr(8,7);
+                const char* cseed = cseed_str.c_str();
+                long seed = hex2long(cseed);
 
-    if(nHeight < 100000 && !Params().SimplifiedRewards())
-    {
-        nSubsidy = (1 + rand) * COIN;
-    }
-    else if(nHeight < 145000 && !Params().SimplifiedRewards())
-    {
-        cseed_str = prevHash.ToString().substr(7,7);
-        cseed = cseed_str.c_str();
-        seed = hex2long(cseed);
-        rand1 = generateMTRandom(seed, 499999);
-        nSubsidy = (1 + rand1) * COIN;
-    }
-    else if(nHeight < 600000)
-    {
-        nSubsidy >>= (nHeight / 100000);
+                int rand = generateMTRandom(seed, 100000);
+
+                if(rand > 30000 && rand < 35001)
+                        nSubsidy = 188 * COIN;
+                else if(rand > 70000 && rand < 71001)
+                        nSubsidy = 588 * COIN;
+                else if(rand > 50000 && rand < 50011)
+                        nSubsidy = 5888 * COIN;
     }
     else
     {
-        nSubsidy = 10000 * COIN;
+        // Subsidy is cut in half every 100,000 blocks, which will occur approximately every 2 months
+        nSubsidy >>= (nHeight / 100000); // Luckycoin: 100K blocks in ~2 months
+
+        std::string cseed_str = prevHash.ToString().substr(8,7);
+                const char* cseed = cseed_str.c_str();
+
+
+
+                long seed = hex2long(cseed);
+
+                int rand = generateMTRandom(seed, 100000);
+
+                if(rand > 30000 && rand < 35001)
+                        nSubsidy *= 2;
+                else if(rand > 70000 && rand < 71001)
+                        nSubsidy *= 5;
+                else if(rand > 50000 && rand < 50011)
+                        nSubsidy *= 58;
     }
 
     return nSubsidy + nFees;
