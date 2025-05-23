@@ -98,7 +98,12 @@ Object blockToJSON(const CBlock& block, const CBlockIndex* blockindex)
     }
     Array txs;
     BOOST_FOREACH(const CTransaction&tx, block.vtx)
-        txs.push_back(tx.GetHash().GetHex());
+    {
+        //txs.push_back(tx.GetHash().GetHex());
+        Object objTx;
+        TxToJSON(tx, 0, objTx);
+        txs.push_back(Value(objTx));
+    }
     result.push_back(Pair("tx", txs));
     result.push_back(Pair("time", block.GetBlockTime()));
     result.push_back(Pair("nonce", (uint64_t)block.nNonce));
